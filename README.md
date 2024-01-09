@@ -1,3 +1,4 @@
+
 ---
 
 # Online Bookstore Application
@@ -31,10 +32,12 @@ Before running the application, make sure you have the following prerequisites i
 1. Create a MySQL database named `bookstore_db`.
 2. Update the `application.properties` file with your MySQL database connection details:
 
-   ```properties
-   spring.datasource.url=jdbc:mysql://localhost:3306/bookstore_db
-   spring.datasource.username=your_mysql_username
-   spring.datasource.password=your_mysql_password
+   ```yaml
+   spring:
+     datasource:
+       url: jdbc:mysql://localhost:3306/bookstore_db
+       username: your_mysql_username
+       password: your_mysql_password
    ```
 
 #### NoSQL Database (MongoDB)
@@ -42,10 +45,13 @@ Before running the application, make sure you have the following prerequisites i
 1. Create a MongoDB database named `bookstore_mongo_db`.
 2. Update the `application.properties` file with your MongoDB connection details:
 
-   ```properties
-   spring.data.mongodb.host=localhost
-   spring.data.mongodb.port=27017
-   spring.data.mongodb.database=bookstore_mongo_db
+   ```yaml
+   spring:
+     data:
+       mongodb:
+         host: localhost
+         port: 27017
+         database: bookstore_mongo_db
    ```
 
 ### Running the Application
@@ -53,11 +59,11 @@ Before running the application, make sure you have the following prerequisites i
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/your_username/online-bookstore.git
-   cd online-bookstore
+   git clone https://github.com/dbubnii/bookstore.git
+   cd bookstore
    ```
 
-2. Build and run the application using Gradle:
+2. Build and run the application using Maven:
 
    ```bash
    mvn spring-boot:run
@@ -164,9 +170,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{
-  "query": "mutation { updateBook
-
-(id: 1, updatedBook: { title: \"Updated Book Title\", author: \"Updated Author\", price: 34.99, publicationYear: 2023 }) { id title author } }"
+  "query": "mutation { updateBook(id: 1, updatedBook: { title: \"Updated Book Title\", author: \"Updated Author\", price: 34.99, publicationYear: 2023 }) { id title author } }"
 }' http://localhost:8080/graphql
 ```
 
