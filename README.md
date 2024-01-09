@@ -179,5 +179,3 @@ curl -X POST -H "Content-Type: application/json" -d '{
 ```
 
 ---
-
-Feel free to customize this README based on your application's specifics. Update placeholders like `{id}`, `{your_mysql_username}`, and `{your_mysql_password}` with your actual values.
